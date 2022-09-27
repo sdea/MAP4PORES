@@ -32,6 +32,8 @@ for i=0:max_dist
     local_thickness(im_sum) = i;
 end
 
-%% 
+%% Local thickness test
 figure, imagesc(local_thickness), colormap("jet")
 axis image 
+
+
