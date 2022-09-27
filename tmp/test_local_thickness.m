@@ -5,10 +5,7 @@ clc;
 clear;
 close all;
 
-%% Generate random structure 
-im = generate_random_blobs([100, 100], 0.6);
-figure, imagesc(im), colormap("gray")
-axis image 
+%% load image from file
 
 %% Distance map 
 im_dist = bwdist(~im);
@@ -35,5 +32,34 @@ end
 %% Local thickness test
 figure, imagesc(local_thickness), colormap("jet")
 axis image 
+
+%% Test function 
+local_t = local_thickness(im);
+figure, imagesc(local_t), colormap("jet")
+axis image
+
+%% Test in 3D 
+im3d = generate_random_blobs([300,300,300], 0.2, 3);
+local_t_3d = local_thickness(im3d);
+figure(1), imagesc(im3d(:,:,50)), colormap("gray")
+figure(2), imagesc(local_t_3d(:,:,50)), colormap("jet")
+
+%% Looping through local thickness values 
+thickness_values = unique(local_thickness);
+
+porosimetry_matrix = zeros(size(local_thickness));
+for it=1:length(thickness_values)
+    
+    value = thickness_values(it);
+    tmp_mask = local_thickness >= value & im;
+    tmp_mask_trimmed = remove_disconnected(tmp_mask);
+    porosimetry_matrix(tmp_mask_trimmed) = value;
+
+end
+
+%% 
+figure, imagesc(porosimetry_matrix), colormap("jet")
+axis image 
+
 
 
