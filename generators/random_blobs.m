@@ -1,4 +1,4 @@
-function im = generate_random_blobs(size, porosity, chunkiness)
+function im = random_blobs(size, porosity, chunkiness)
 % TODO: Include documentation 
 
 
