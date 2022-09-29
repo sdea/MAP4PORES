@@ -1,5 +1,23 @@
 function im_out = local_thickness(im)
-% TODO - add documentation 
+% This function replaces each voxel with the radius of the maximum sphere 
+% that boths engulf the voxel and fits within the structure. 
+% The function works on a binary image, calculating the local thickness on the phase labeled with one. 
+%
+%
+% Inputs:
+%   :im: binary image (can be 2D or 3D).
+%
+% Output:
+%   :im_out: resulting image containing the local thicnkness information    
+%                       
+%
+% Examples:
+% bla bla bla
+%
+% Notes:
+%
+% .. note:: Pay attention to this function
+
 
 im_dist = bwdist(~im); 
 max_dist = max(im_dist(:));

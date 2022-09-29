@@ -1,5 +1,16 @@
 function im_out = label_connected(im, faces)
-% TODO: include documentation
+% This function takes a binary image as input and returns a resulting image
+% with each voxeled labeled as 1 (if disconnected) or 2 if connected.
+%
+% Inputs:
+% :im: binary image (can be 2D or 3D)
+% :faces: a 1D array of 0s and 1s. If :im: is 2D, faces as length 4, 
+% 
+% Outputs:
+% :im_out: resulting image
+%
+% Examples
+% 
 
 im_dims = length(size(im));
 is3D = im_dims == 3;
