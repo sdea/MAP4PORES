@@ -5,6 +5,4 @@ function im_out = percolating_path(im, faces)
 
 
 
-
-
 end

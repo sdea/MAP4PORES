@@ -28,9 +28,9 @@ switch nargin
 end
 
 if is3D
-    im_label = bwlabel(im);
-else  
     im_label = bwlabeln(im);
+else  
+    im_label = bwlabel(im);
 end
 
 num_labels = max(im_label(:));
