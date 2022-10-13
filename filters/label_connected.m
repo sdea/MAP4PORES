@@ -1,9 +1,9 @@
 function im_out = label_connected(im, faces)
-% This function takes a binary image as input and returns a resulting image
+% This function takes a binary image as input and returns an image
 % with each voxel labeled as 1 if disconnected or 2 if connected. The 
 % connectivity is checked against the active faces, as expressed by the 
-% input array . The function performs the calculation on the phase labeled 
-% with 1 (or true) in the binary input image *im.    
+% input array. The function performs the calculation on the phase labeled 
+% with 1 (or true) in the binary input image im.    
 %
 % Inputs:
 %   im:    binary image (can be 2D or 3D)
@@ -14,7 +14,9 @@ function im_out = label_connected(im, faces)
 %   :im_out: resulting image
 %
 % Notes:
-%   The 
+%   The different faces of the volume are indicated by the position in the 
+%   faces array. For instance, faces(1) is equal to im(1,:). faces(2) is
+%   equal to im(end, :). 
 
 im_dims = length(size(im));
 is3D = im_dims == 3;

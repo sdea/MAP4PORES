@@ -1,5 +1,5 @@
 function im_out = porosimetry(im, faces)
-% TODO: Add documentation
+
 
 is3D = check_image_dims(im);
 
@@ -15,8 +15,8 @@ end
 
 im_thickness = local_thickness(im);
 thickness_values = unique(im_thickness);
-
 im_out = zeros(size(im_thickness));
+
 for it=1:length(thickness_values)
     
     value = thickness_values(it);
